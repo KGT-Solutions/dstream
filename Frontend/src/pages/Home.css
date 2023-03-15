@@ -1,0 +1,51 @@
+img{
+    border-radius:10px;
+    width: 350px;
+    height: 250px;
+}
+
+.row_posters{ 
+    
+    padding:20px;   
+}
+.row_poster{
+    display: inline-block;
+    width:350px;
+    border-radius:10px;
+    max-height:250px;
+    object-fit: contain;
+    margin:20px;
+    transition: transform 450ms;
+}
+.row_posters::-webkit-scrollbar{
+    display:none;
+}
+.row_poster:hover{
+    transform: scale(1.1);
+}
+.player{
+    height:100vh;
+    align-items: center;
+    width: 100%;
+}
+#title{
+    margin-left:35%;
+}
+.video{
+    margin-left:10%;
+    border: 1px solid wheat;
+}
+.error{
+    Height:90vh;
+    text-align: center;
+    margin-top:10px;
+}
+.error:hover{
+    transform:rotate(180deg);
+    
+}
+.upload {
+    margin-top: 20px;
+    margin-left: 80%;
+    font-size: large;
+}
