@@ -1,4 +1,5 @@
 import React from "react";
+import "../Styles/VideoInput.css";
 
 export default function VideoInput(props) {
   const { width, height } = props;
@@ -25,7 +26,7 @@ export default function VideoInput(props) {
         onChange={handleFileChange}
         accept=".mov,.mp4"
       />
-      {!source && <button onClick={handleChoose}>Choose</button>}
+      {!source && <button onClick={handleChoose}>Choose Video</button>}
       {source && (
         <video
           className="VideoInput_video"
@@ -35,7 +36,7 @@ export default function VideoInput(props) {
           src={source}
         />
       )}
-      <div className="VideoInput_footer">{source || "Nothing selectd"}</div>
+      <div className="VideoInput_footer">{source || <span className="smallSpan">Nothing selected</span>}</div>
     </div>
   );
 }

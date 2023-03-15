@@ -8,7 +8,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid #ddd;
+    margin-top: 10%;
   }
   
   .VideoInput_input {
@@ -17,18 +17,20 @@
   
   .VideoInput_video {
     display: block;
-    margin: 0;
+    margin: 10px;
   }
   
   .VideoInput_footer {
-    background: #eee;
-    width: 100%;
-    min-height: 40px;
-    line-height: 40px;
+    width: 20%;
+    min-height: 10px;
+    line-height: 10px;
     text-align: center;
   }
 
-  .gap {
+.gap {
     margin-top: 20px;
     font-size: large;
+}
+.smallSpan {
+  font-size: 12px;
 }
