@@ -1,4 +1,4 @@
-# Steph's Frontend Starter
+# rolltube Frontend Starter
 
 I created this frontend starter project to help get up and running fast with 
 
