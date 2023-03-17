@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 
 import "./App.css";
 import Home from "./pages/Home";
@@ -8,13 +9,14 @@ import Player from "./pages/Player";
 import Upload from "./pages/Upload";
 import NavBar from "./components/NavBar";
 
+
+
 function App() {
   const [currentAddress, setCurrentAddress] = useState(null);
-
+  
   // const [movie, setMovie] = useState([]);
   const [title, setTitle] = useState("");
   const [player, setPlayer] = useState("");
-
   const [Comments, setComments] = useState([]);
 
   useEffect(() => {
@@ -38,7 +40,8 @@ function App() {
     }
   }
 
-  const accountProps = { currentAddress };
+
+  // const accountProps = { currentAddress };
 
   return (
     <div className="App">

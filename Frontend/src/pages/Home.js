@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 import "./Home.css";
 import companyLogo from './dolphin.jpg';
 import { Link } from "react-router-dom";

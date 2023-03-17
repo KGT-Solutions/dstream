@@ -20,6 +20,8 @@ import { appConstants } from "../appConstants";
 const drawerWidth = 240;
 const navItems = ["contact"];
 
+
+
 function NavBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
