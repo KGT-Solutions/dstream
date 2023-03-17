@@ -8,9 +8,6 @@ import Player from "./pages/Player";
 import Upload from "./pages/Upload";
 import NavBar from "./components/NavBar";
 
-
-
-
 function App() {
   const [currentAddress, setCurrentAddress] = useState(null);
 
@@ -18,7 +15,7 @@ function App() {
   const [title, setTitle] = useState("");
   const [player, setPlayer] = useState("");
 
-
+  const [Comments, setComments] = useState([]);
 
   useEffect(() => {
     async function fetchConnectedAccount() {
@@ -42,18 +39,27 @@ function App() {
   }
 
   const accountProps = { currentAddress };
- 
 
   return (
     <div className="App">
       <NavBar />
       <Box sx={{ paddingTop: "64px" }}>
         <Routes>
-          <Route path="/" element={<Home setPlayer={setPlayer} setTitle={setTitle} />} />
+          <Route
+            path="/"
+            element={<Home setPlayer={setPlayer} setTitle={setTitle} />}
+          />
           <Route path="upload" element={<Upload />} />
           <Route
             path="/player"
-            element={<Player player={'https://www.youtube.com/watch?v=G7L4YzGAvMA'} title={title} />}
+            element={
+              <Player
+                player={"https://www.youtube.com/watch?v=G7L4YzGAvMA"}
+                title={title}
+                Comments={Comments}
+                setComments={setComments}
+              />
+            }
           />
         </Routes>
       </Box>

@@ -1,0 +1,15 @@
+.like-button {
+    font-size: 1.5rem;
+    padding: 5px 10px;
+    color:  #585858;
+}
+
+
+.video {
+    border: 1px solid black;
+}
+.postComm {
+    background-color: rgb(126, 126, 189);
+    border-radius: 5px;
+    margin-left: 2px;
+}
