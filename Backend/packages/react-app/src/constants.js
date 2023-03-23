@@ -102,6 +102,15 @@ export const NETWORKS = {
     faucet: "https://faucet.polygon.technology/",
     blockExplorer: "https://mumbai.polygonscan.com/",
   },
+  zkEVM: {
+    name: "zkEVM",
+    color: "#2bbdf7",
+    chainId: 1442,
+    price: 1,
+    gasPrice: 1000000000,
+    rpcUrl: "https://rpc.public.zkevm-test.net",
+    blockExplorer: "https://explorer.public.zkevm-test.net",
+  },
   localOptimismL1: {
     name: "localOptimismL1",
     color: "#f01a37",
