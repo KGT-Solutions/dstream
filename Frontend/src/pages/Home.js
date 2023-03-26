@@ -3,11 +3,19 @@ import "./Home.css";
 import companyLogo from './dolphin.jpg';
 import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';  
+import { readRollVideos } from "../utils/contractIntraction";
+import { useEffect } from "react";
 
 
 
 const Home = ({setPlayer, setTitle}) => {
   // {movie, setPlayer, setTitle}
+  useEffect(() => {
+    async function fetchVideos() {
+      await readRollVideos();
+    }
+    fetchVideos();
+  }, []);
   const navigate = useNavigate();
 
   const movie= [

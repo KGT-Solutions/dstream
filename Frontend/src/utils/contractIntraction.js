@@ -19,3 +19,29 @@ export async function mintRollVideo(uri) {
         return result;
       }
 }
+
+export async function readRollVideos() {
+    if (typeof window.ethereum !== "undefined") {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const contract = new ethers.Contract(
+        contractAddress,
+        RollVideo.abi,
+        provider
+      );
+      console.log("contract", contract);
+      try {
+        const totalSupply = await contract.totalSupply();
+        console.log("totalSupply: ", parseInt(totalSupply.toString()));
+        var times = parseInt(totalSupply.toString());
+        for(var i = 0; i < times; i++){
+            const tokenURI = await contract.tokenURI(parseInt(i));
+            console.log("token URL", tokenURI);
+        }
+      } catch (err) {
+        console.log("Error: ", err);
+        alert(
+          "Switch your MetaMask network to Polygon zkEVM testnet and refresh this page!"
+        );
+      }
+    }
+  }
