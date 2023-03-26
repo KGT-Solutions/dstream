@@ -1,47 +1,52 @@
 import React, { useState } from 'react';
-import { Button, Input } from '@mobiscroll/react-lite';
-import VideoInput from "../components/VideoInput";
+import { useForm } from "react-hook-form";
+import { storeNFT } from "../uploadMetadata";
 import "../Styles/VideoInput.css";
 
 function Upload() {
+    const { register, handleSubmit } = useForm();
+    async function onSubmit(data) {
+        console.log("submitting", data, data.video[0]);
+        const result = await storeNFT(data.video[0], data.name, data.description, data.ageCategory);
+        console.log(result);
+      }
     return (
-        <div>
-            <div className="mbsc-row">
-                <div className="gap">
-                    <VideoInput width={400} height={300} />
-                </div>
-            </div>
-
-            <div className="mbsc-row">
-                <div className="gap mbsc-col-12 mbsc-col-md-6 mbsc-col-lg-3">
-                    <span className='smallSpan'>Video Name </span>
-                    <Input label="Title" inputStyle="box" labelStyle="floating" />
-                </div>
-                <div className="gap mbsc-col-12 mbsc-col-md-6 mbsc-col-lg-3">
-                    <label>
-                        <span className='smallSpan'>Description </span>
-                        <textarea name="postContent" rows={5} cols={40} />
-                    </label>
-                </div>
-
+        <div className='minter-container'>
+            <h3 className="makeStyles-title-99 Typography-h3 form-Typography-gutterBottom">
+                Mint Video
+            </h3>
+            <form noValidate="" autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
                 <div className="mbsc-row">
-                    <div className="gap mbsc-col-12 mbsc-col-md-12 mbsc-col-lg-3">
-                        <span className='smallSpan'>Select Age category </span>
-                        <select>
-                            <option value="Orange">3+</option>
-                            <option value="Radish">12+</option>
-                            <option value="Cherry">18+</option>
-                        </select>
-                    </div>
+                    <input
+                        {...register("video", { required: true})}
+                        className="upload"
+                        type="file"
+                    />
                 </div>
-            </div>
-            <div className="mbsc-row">
-                <div className="gap mbsc-col-12 mbsc-col-md-12 mbsc-col-lg-3">
-                    <div className="mbsc-button-group-block">
-                        <Button color="success">Upload Details</Button>
-                    </div>
+                <div className="mbsc-row">
+                    <input
+                        {...register("name", { required: true })}
+                        placeholder="e.g. Crypto dance"
+                        type="text"
+                        className="form-InputBase-input form-OutlinedInput-input"
+                    />
                 </div>
-            </div>
+                <div className="mbsc-row">
+                    <input
+                        {...register("description", { required: true })}
+                        type="textarea"
+                        className="form-InputBase-input form-OutlinedInput-input"
+                    />
+                </div>
+                <div className="mbsc-row">
+                    <select {...register("ageCategory")}>
+                        <option value="3">3+</option>
+                        <option value="12">12+</option>
+                        <option value="18">18+</option>
+                    </select>
+                </div>
+                <input type="submit" />
+            </form>
         </div>
     )
 }
