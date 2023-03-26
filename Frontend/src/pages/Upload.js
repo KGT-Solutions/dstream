@@ -1,17 +1,27 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { storeNFT } from "../utils/uploadMetadata";
+import { mintRollVideo } from "../utils/contractIntraction";
 import "../Styles/VideoInput.css";
 
 function Upload() {
     const { register, handleSubmit } = useForm();
+    const [loaderHidden, setLoaderHidden] = useState(true);
     async function onSubmit(data) {
-        console.log("submitting", data, data.video[0]);
-        const result = await storeNFT(data.video[0], data.name, data.description, data.ageCategory);
-        console.log(result);
+        setLoaderHidden(false);
+        const token = await storeNFT(data.video[0], data.name, data.description, data.ageCategory);
+        console.log(token);
+        const transaction = await mintRollVideo(token.url);
+        setLoaderHidden(true);
       }
     return (
         <div className='minter-container'>
+            <div hidden={loaderHidden} className="lds-ellipsis">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
             <h3 className="makeStyles-title-99 Typography-h3 form-Typography-gutterBottom">
                 Mint Video
             </h3>
