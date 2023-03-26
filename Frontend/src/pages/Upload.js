@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
-import { storeNFT } from "../uploadMetadata";
+import { storeNFT } from "../utils/uploadMetadata";
 import "../Styles/VideoInput.css";
 
 function Upload() {
@@ -24,6 +24,7 @@ function Upload() {
                     />
                 </div>
                 <div className="mbsc-row">
+                    <h5>Name: </h5>
                     <input
                         {...register("name", { required: true })}
                         placeholder="e.g. Crypto dance"
@@ -32,6 +33,7 @@ function Upload() {
                     />
                 </div>
                 <div className="mbsc-row">
+                    <h5>Description: </h5>
                     <input
                         {...register("description", { required: true })}
                         type="textarea"
@@ -39,13 +41,14 @@ function Upload() {
                     />
                 </div>
                 <div className="mbsc-row">
+                    <h5>Select Age Category: </h5>
                     <select {...register("ageCategory")}>
                         <option value="3">3+</option>
                         <option value="12">12+</option>
                         <option value="18">18+</option>
                     </select>
                 </div>
-                <input type="submit" />
+                <div className="mbsc-row" ><input type="submit" /></div>
             </form>
         </div>
     )

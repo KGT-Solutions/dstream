@@ -6,7 +6,7 @@ import "@rainbow-me/rainbowkit/styles.css";
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 // Example configuration as per https://wagmi.sh/react/chains#usage
-import { zkEVMTestnet } from './zkEVMTestnet.js';
+import { zkEVMTestnet } from './utils/zkEVMTestnet.js';
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
 import "./index.css";
